@@ -23,19 +23,17 @@ print(user_cards, computer_cards)
 #and returns the score. 
 #Look up the sum() function to help you do this.
 
-def calculate_score():
-  user_score = sum(user_cards)
-  computer_score = sum(computer_cards)
-  if user_score == 21:
-    user_score = 0
-  if computer_score == 21:
-    computer_score = 0
-  print(user_score)
-  print(computer_score)
-  
-calculate_score()
+def calculate_score(cards):
+  if sum(cards) == 21 and len(cards) == 2:
+    return 0
 
 #Hint 7: Inside calculate_score() check for a blackjack (a hand with only 2 cards: ace + 10) and return 0 instead of the actual score. 0 will represent a blackjack in our game.
+
+  if sum(cards) > 21 and 11 in cards:
+    cards.remove(11)
+    cards.append(1)
+    
+  return sum(cards)
 
 #Hint 8: Inside calculate_score() check for an 11 (ace). If the score is already over 21, remove the 11 and replace it with a 1. You might need to look up append() and remove().
 

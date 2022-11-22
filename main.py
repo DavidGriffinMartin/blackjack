@@ -16,8 +16,6 @@ def deal_card():
 for _ in range(2):
   user_cards.append(deal_card())
   computer_cards.append(deal_card())
-  
-print(user_cards, computer_cards)
 
 #Hint 6: Create a function called calculate_score() that takes a List of cards as input 
 #and returns the score. 
@@ -43,19 +41,20 @@ def calculate_score(cards):
 user_score = calculate_score(user_cards)
 computer_score = calculate_score(computer_cards)
 
-print(user_score)
-print(computer_score)
+print(f"Your cards: {user_cards} totaling {user_score}.")
+print(f"Dealers card: {computer_cards[0]}")
 
 is_game_over = False
 
-if user_score > 21 or user_score == 0:
-  is_game_over = True
-if computer_score > 21 or computer_score == 0:
+if user_score == 0 or computer_score == 0 or user_score > 21:
   is_game_over = True
 
 #Hint 10: If the game has not ended, ask the user if they want to draw another card. If yes, then use the deal_card() function to add another card to the user_cards List. If no, then the game has ended.
 
-
+else: 
+  deal_again = input("Input Y to be delt another card or N to stay: ").lower
+  if deal_again == "y":
+    user_cards.append(deal_card())
 
 #Hint 11: The score will need to be rechecked with every new card drawn and the checks in Hint 9 need to be repeated until the game ends.
 

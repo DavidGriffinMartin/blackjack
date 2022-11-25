@@ -2,6 +2,7 @@
 #11 is the Ace.
 
 import random
+import os
 
 user_cards = []
 computer_cards = []
@@ -93,3 +94,10 @@ print(compare(user_score, computer_score))
 
 #Hint 14: Ask the user if they want to restart the game. If they answer yes, clear the console and start a new game of blackjack and show the logo from art.py.
 
+start_over = input("Input y to start another round or n to end table: ")
+if start_over == "y":
+  os.system('clear')
+  os.system('python3 main.py')
+else: 
+  os.system('clear')
+  print("Thanks for playing.")

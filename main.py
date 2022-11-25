@@ -57,7 +57,7 @@ def compare(user_score, computer_score):
   elif computer_score > user_score:
     return f"Dealers cards: {computer_cards}.\nDealer wins with {computer_score}."
   else:
-    return f"Dealers cards: {computer_cards} totalling {computer_score}.\nPlayer wins with {user_score}."
+    return f"Dealers cards: {computer_cards} totaling {computer_score}.\nPlayer wins with {user_score}."
 print(compare(user_score, computer_score))
 
 start_over = input("Input y to start another round or n to end table: ")

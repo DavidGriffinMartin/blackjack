@@ -1,5 +1,4 @@
-import random
-import os
+import random, os
 
 user_cards = []
 computer_cards = []

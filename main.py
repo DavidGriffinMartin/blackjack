@@ -77,19 +77,19 @@ while user_score < 21 and computer_score != 0 and computer_score < 17:
 
 def compare(user_score, computer_score):
   if user_score == computer_score:
-    return f"It's a draw with {computer_score}, dealer wins."
+    return f"Dealers cards: {computer_cards} totaling {computer_score}.\nIt's a draw with {computer_score}, dealer wins."
   elif computer_score == 0:
-    return "Dealer has blackjack, dealer wins."
+    return f"Dealers cards: {computer_cards} totaling {computer_score}.\nDealer has blackjack, dealer wins."
   elif user_score == 0:
     return "Player has blackjack, player wins."
   elif user_score > 21:
-    return f"Player bust, dealer wins with {computer_score}."
+    return f"Player bust, dealer wins."
   elif computer_score > 21:
-    return f"Dealer bust, player wins with {user_score}."
+    return f"Dealers cards: {computer_cards} totaling {computer_score}.\nDealer bust, player wins with {user_score}."
   elif computer_score > user_score:
-    return f"Dealer wins with {computer_score}."
+    return f"Dealers cards: {computer_cards} totaling {computer_score}.\nDealer wins with {computer_score}."
   else:
-    return f"Player wins with {user_score}."
+    return f"Dealers cards: {computer_cards}.\nPlayer wins with {user_score}."
 
 print(compare(user_score, computer_score))
 

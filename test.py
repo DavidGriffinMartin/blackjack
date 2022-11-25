@@ -25,7 +25,7 @@ while not is_game_over:
   user_score = calculate_score(user_cards)
   computer_score = calculate_score(computer_cards)
   print(f"Your cards: {user_cards} totaling {user_score}.")
-  print(f"Dealers card: {computer_cards[0]}")
+  print(f"Dealers card: {computer_cards[1]}")
   if user_score == 0 or computer_score == 0 or user_score > 21:
     is_game_over = True
   else: 
@@ -44,10 +44,10 @@ while user_score != 0 and user_score < 21 and computer_score != 0 and computer_s
 def compare(user_score, computer_score):
   if user_score == computer_score:
     return f"Dealers cards: {computer_cards} totaling {computer_score}.\nIt's a draw with {computer_score}, dealer wins."
-  elif computer_score == 0:
-    return f"Dealers cards: {computer_cards}.\nDealer has blackjack, dealer wins."
   elif user_score == 0 and computer_score == 0:
     return "Dealer has blackjack, player wins."
+  elif computer_score == 0:
+    return f"Dealers cards: {computer_cards}.\nDealer has blackjack, dealer wins."
   elif user_score == 0:
     return "Player has blackjack, player wins."
   elif user_score > 21:

@@ -47,8 +47,6 @@ while not is_game_over:
   print(f"Your cards: {user_cards} totaling {user_score}.")
   print(f"Dealers card: {computer_cards[0]}")
 
-  # is_game_over = False
-
   if user_score == 0 or computer_score == 0 or user_score > 21:
     is_game_over = True
 
@@ -68,10 +66,10 @@ while not is_game_over:
 #Hint 12: Once the user is done, it's time to let the computer play. The computer should keep drawing cards as long as it has a score less than 17.
 
 while user_score < 21 and computer_score != 0 and computer_score < 17:
-  print(f"Dealers cards: {computer_cards}.")
+  print(f"Dealers cards: {computer_cards} totaling {computer_score}.")
   computer_cards.append(deal_card())
   computer_score = calculate_score(computer_cards)
-  print(f"Dealer draws {computer_cards[-1]}.\nDealer has {computer_score}")
+  print(f"Dealer draws {computer_cards[-1]}.\nDealer has {computer_score}.")
 
 #Hint 13: Create a function called compare() and pass in the user_score and computer_score. If the computer and user both have the same score, then it's a draw. If the computer has a blackjack (0), then the user loses. If the user has a blackjack (0), then the user wins. If the user_score is over 21, then the user loses. If the computer_score is over 21, then the computer loses. If none of the above, then the player with the highest score wins.
 
@@ -79,13 +77,13 @@ def compare(user_score, computer_score):
   if user_score == computer_score:
     return f"Dealers cards: {computer_cards} totaling {computer_score}.\nIt's a draw with {computer_score}, dealer wins."
   elif computer_score == 0:
-    return f"Dealers cards: {computer_cards} totaling {computer_score}.\nDealer has blackjack, dealer wins."
+    return f"Dealers cards: {computer_cards}.\nDealer has blackjack, dealer wins."
   elif user_score == 0:
     return "Player has blackjack, player wins."
   elif user_score > 21:
     return f"Player bust, dealer wins."
   elif computer_score > 21:
-    return f"Dealers cards: {computer_cards} totaling {computer_score}.\nDealer bust, player wins with {user_score}."
+    return f"Dealer bust, player wins with {user_score}."
   elif computer_score > user_score:
     return f"Dealers cards: {computer_cards} totaling {computer_score}.\nDealer wins with {computer_score}."
   else:

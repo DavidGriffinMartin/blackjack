@@ -37,6 +37,22 @@ def calculate_score(cards):
 
   return sum(cards)
 
+def compare(user_score, computer_score):
+  if user_score == computer_score:
+    return "It's a draw, dealer wins."
+  elif computer_score == 0:
+    return "Dealer has blackjack, dealer wins."
+  elif user_score == 0:
+    return "Player has blackjack, player wins."
+  elif user_score > 21:
+    return "Player bust, dealer wins."
+  elif computer_score > 21:
+    return "Dealer bust, player wins."
+  elif computer_score > user_score:
+    return f"Dealer wins with {computer_score}"
+  else:
+    return f"Player wins with {user_score}"
+
 #Hint 9: Call calculate_score(). If the computer or the user has a blackjack (0) or if the user's score is over 21, then the game ends.
 
 while not is_game_over:
@@ -67,12 +83,14 @@ while not is_game_over:
 
 #Hint 12: Once the user is done, it's time to let the computer play. The computer should keep drawing cards as long as it has a score less than 17.
 
-while computer_score != 0 and computer_score < 17:
+while user_score < 21 and computer_score != 0 and computer_score < 17:
   computer_cards.append(deal_card())
   computer_score = calculate_score(computer_cards)
-  print(f"Computer score: {computer_score}")
+  print(f"Dealer draws.\nDealer has {computer_score}")
 
 #Hint 13: Create a function called compare() and pass in the user_score and computer_score. If the computer and user both have the same score, then it's a draw. If the computer has a blackjack (0), then the user loses. If the user has a blackjack (0), then the user wins. If the user_score is over 21, then the user loses. If the computer_score is over 21, then the computer loses. If none of the above, then the player with the highest score wins.
+
+print(compare(user_score, computer_score))
 
 #Hint 14: Ask the user if they want to restart the game. If they answer yes, clear the console and start a new game of blackjack and show the logo from art.py.
 
